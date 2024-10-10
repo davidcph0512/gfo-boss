@@ -226,7 +226,7 @@ const BossCountDown = () => {
 
 	const defaultTableColumns = [
 		{
-			title: "重覆提醒",
+			title: "提醒",
 			dataIndex: "requiredTwiceRemind",
 			key: "requiredTwiceRemind",
 			render: (text, e, index) => {
