@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, TimePicker, Table, Checkbox, Modal, Input } from "antd";
+import { Button, TimePicker, Table, Tabs } from "antd";
 import moment from "moment-timezone";
 import axios from "axios";
 import {
@@ -517,13 +517,45 @@ const BossCountDown = () => {
 				);
 			},
 		},
-	];
-
+    ];
+    
+    const [tabKey, setTabKey] = useState('1');
+    const onChange = (key) => {
+        setTabKey(key)
+    };
+    const items = [
+        {
+          key: '1',
+          label: '全部',
+        },
+        {
+          key: '2',
+          label: '龍',
+        },
+        {
+          key: '3',
+          label: '樹',
+        },
+        {
+          key: '4',
+          label: '火山',
+        },
+      ];
 	return (
-		<>
+        <>
+            <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
 			<Table
 				size={"small"}
-				dataSource={tableData}
+                dataSource={tableData.filter(td => {
+                    if (tabKey === '2') {
+                        return td.serverName.startsWith('龍')
+                    } else if (tabKey === '3') {
+                        return td.serverName.startsWith('樹')
+                    } else if (tabKey === '4') {
+                        return td.serverName.startsWith('火山')
+                    }
+                    return true;
+                })}
 				columns={defaultTableColumns}
 				sortDirections={["descend", "ascend"]}
 				pagination={{
