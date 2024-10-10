@@ -153,7 +153,8 @@ const BossCountDown = () => {
 			}
 			const timeleft = moment(lastKillTime)
 				.add(NEXT_SPAWN_TIME_OFFSET, "seconds")
-				.diff(moment(), "second");
+                .diff(moment(), "second");
+            
 			setTimeLeftMap((prev) => ({
 				...prev,
 				[serverId]: timeleft,
