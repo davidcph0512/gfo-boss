@@ -151,15 +151,6 @@ const BossCountDown = () => {
 				}
 				continue;
 			}
-
-			if (dataIndex == 0) {
-				console.log(
-					moment(lastKillTime)
-						.add(NEXT_SPAWN_TIME_OFFSET, "seconds")
-						.format("YYYY-MM-DD HH:mm:ss"),
-					moment().format("YYYY-MM-DD HH:mm:ss")
-				);
-			}
 			const timeleft = moment(lastKillTime)
 				.add(NEXT_SPAWN_TIME_OFFSET, "seconds")
 				.diff(moment(), "second");
