@@ -1,0 +1,13 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.ant-menu-item-selected {
+	background-color: transparent !important;
+}
+
+.ant-pagination {
+	display: none !important;
+}
